@@ -3,5 +3,6 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println("hello from actions! some changes")
+	result := add(1, 2)
+	fmt.Printf("the result is: %d\n", result)
 }
