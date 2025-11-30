@@ -25,3 +25,8 @@ jobs:
 
       - name: Test application
         run: go test ./...
+
+      - name: Format application
+        # $() captures the output from the go fmt command and places it into the outer command
+        # test -z checks if the output is empty, returning 0 if it is and 1 if it isn't
+        run: test -z $(go fmt ./...)
