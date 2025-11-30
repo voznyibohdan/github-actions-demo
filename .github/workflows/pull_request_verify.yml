@@ -21,7 +21,7 @@ jobs:
         run: go version
 
       - name: Build application
-        run: go build main.go
+        run: go build
 
       - name: Test application
         run: go test ./...
