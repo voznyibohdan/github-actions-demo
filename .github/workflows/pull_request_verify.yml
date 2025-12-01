@@ -33,3 +33,17 @@ jobs:
         # $() captures the output from the go fmt command and places it into the outer command
         # test -z checks if the output is empty, returning 0 if it is and 1 if it isn't
         run: test -z $(go fmt ./...)
+
+      # LINTING
+      - name: Install staticcheck
+        run: go install honnef.co/go/tools/cmd/staticcheck@latest
+
+      - name: Lint application
+        run: staticcheck ./...
+
+      # SECURE CODE ANALYSIS
+      - name: Install gosec
+        run: go install github.com/securego/gosec/v2/cmd/gosec@latest
+
+      - name: Run gosec
+        run: gosec ./...
